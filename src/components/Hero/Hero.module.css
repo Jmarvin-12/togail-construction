@@ -1,0 +1,68 @@
+.hero {
+    @apply relative h-screen w-full bg-cover bg-center;
+    background-image: url('/heroS1.webp'); /* Background image */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the left */
+    padding: 0 5%; /* Add horizontal padding */
+    animation: backgroundEmerge 1.5s ease-out; /* Background animation */
+}
+
+@keyframes backgroundEmerge {
+    0% {
+        transform: translateY(100px) scale(1.1); /* Start below and zoomed */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scale(1); /* End at normal position */
+        opacity: 1;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional overlay */
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 50%; /* Restrict content width */
+    animation: emergeFromBottom 1.2s ease-out; /* Add emerge animation */
+}
+
+.headline {
+    @apply text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-white;
+}
+
+.subheadline {
+    @apply text-lg md:text-xl font-medium mb-6 text-gray-300;
+}
+
+.buttons {
+    @apply flex space-x-4;
+}
+
+.buttonPrimary {
+    @apply px-6 py-3 bg-green-600 text-white font-semibold rounded-full shadow-md hover:bg-green-800 hover:shadow-lg transition-all duration-300;
+}
+
+.buttonSecondary {
+    @apply px-6 py-3 bg-white text-green-600 font-semibold rounded-full shadow-md hover:bg-gray-300 hover:shadow-lg transition-all duration-300;
+}
+
+@keyframes emergeFromBottom {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

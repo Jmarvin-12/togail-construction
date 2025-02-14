@@ -1,0 +1,31 @@
+/* Dropdown Container */
+.menuItems {
+    position: absolute;
+    margin-top: 0.5rem;
+    width: 12rem;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem;
+}
+
+/* Menu Item */
+.menuItem {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: #1a202c;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Focus State */
+.menuItem:hover,
+.menuItem:focus {
+    background-color: #f0fff4; /* Light green */
+    color: #2f855a; /* Dark green */
+}
+
+.dropdownMenu {
+    @apply absolute mt-2 bg-white shadow-lg rounded-lg w-48 py-2 z-10;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    opacity: 1;
+}

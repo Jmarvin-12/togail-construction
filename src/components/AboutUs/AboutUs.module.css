@@ -1,0 +1,28 @@
+/* About Us Section Styles */
+.aboutSection {
+    @apply relative flex items-center justify-between w-full bg-white py-12 px-8; /* Background and spacing */
+}
+
+.aboutContent {
+    @apply w-1/2 pr-8; /* Takes 50% of the width with padding-right */
+}
+
+.aboutTitle {
+    @apply text-4xl font-extrabold text-green-600 mb-4; /* Title styling */
+}
+
+.aboutText {
+    @apply text-gray-700 text-lg mb-6 leading-relaxed; /* Paragraph styling */
+}
+
+.readMoreButton {
+    @apply inline-block px-6 py-3 bg-green-600 text-white font-semibold rounded-full shadow-md hover:bg-green-700 hover:shadow-lg transition-all duration-300;
+}
+
+.aboutImage {
+    @apply w-1/2; /* Takes 50% of the width */
+}
+
+.aboutImage img {
+    @apply rounded-lg shadow-md; /* Image styling */
+}

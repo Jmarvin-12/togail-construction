@@ -1,0 +1,42 @@
+/* 
+ * Footer Styles
+ *
+ * Tailwind-based styles for the Footer component.
+ * These styles are encapsulated in CSS Modules to avoid class name collisions.
+ */
+
+ .footer {
+    @apply bg-gray-900 text-white py-10;
+}
+
+.container {
+    @apply mx-auto grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+.section {
+    @apply text-gray-400;
+}
+
+.title {
+    @apply text-xl font-bold text-white;
+}
+
+.subtitle {
+    @apply text-lg font-semibold text-white;
+}
+
+.text {
+    @apply mt-2 leading-relaxed;
+}
+
+.links {
+    @apply mt-4 space-y-2;
+}
+
+.link {
+    @apply text-gray-400 hover:text-white transition-colors duration-300;
+}
+
+.footerBottom {
+    @apply mt-10 text-center text-gray-500;
+}

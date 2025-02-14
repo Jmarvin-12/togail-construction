@@ -1,0 +1,150 @@
+/* Independent Logo */
+/* .logoWrapper {
+    @apply fixed -top-px left-[50%] transform -translate-x-1/2 z-50 shadow-md px-4 py-2  transition-opacity duration-1000 ease-in-out;
+} */
+
+@media (max-width: 768px) {
+    .logoWrapper {
+        width: 150px;
+        height: 75px;
+    }
+}
+
+/* .logoWrapper {
+    @apply absolute top-3 left-[50%] transform -translate-x-1/2 flex items-center justify-center;
+    background-image: url('/FullLogo.jpg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    height: 100px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+} */
+.logoWrapper {
+    @apply absolute top-0 left-[50%] transform -translate-x-1/2 flex items-center justify-center;
+    width: 200px; /* Default size */
+    height: 100px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-image: url('/FullLogo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logoSmall {
+    transform: translate(-50%, 0) scale(0.7); /* Shrink smoothly to 70% */
+    transition: transform 0.3s ease-in-out;
+}
+
+.logoWrapper.shrink {
+    transform: translate(-50%, 0) scale(0.7); /* Shrink smoothly */
+}
+
+/* .logoSmall {
+    transform: scale(0.8) translate(-50%, 0); 
+} */
+
+.logoImage {
+    @apply shadow-[0_8px_16px_rgba(0,109,0,0.6)] rounded-lg;
+} 
+
+/* .logoWrapper:hover {
+    @apply shadow-[0_12px_24px_rgba(0,109,0,0.8)] transform scale-110;
+} */
+.logoWrapper:hover {
+    box-shadow: 0 12px 24px rgba(0, 109, 0, 0.8); /* 3D effect */
+    transform: scale(1.05) translate(-50%, 0); /* Ensure centering */
+}
+
+/* Navbar */
+.navbar {
+    @apply sticky top-0 z-50 bg-white shadow-md flex justify-between items-center px-8 py-3 border-b border-gray-200 transition-all duration-300 ease-in-out;
+}
+
+/* .navbarScrolled {
+*    @apply bg-opacity-75; 
+*    background-color: rgba(255, 255, 255, 0.85); 
+    @apply shadow-lg; /* Enhance shadow on scroll */
+/* } */
+ 
+.navbarScrolled {
+    @apply bg-opacity-95; /* Transparency */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
+}
+
+.container {
+    @apply flex justify-between items-center w-full max-w-7xl mx-auto;
+}
+
+.logoWrapper {
+    @apply absolute left-[50%] transform -translate-x-1/2;
+}
+
+.navLinks {
+    @apply flex space-x-8 items-center; /* Horizontal alignment and spacing */
+}
+
+.navLink {
+    @apply text-gray-700 text-base font-medium transition-all duration-300;
+    position: relative; /* Enable underline animation */
+}
+
+.navLink:hover {
+    @apply text-green-700; /* Change text color on hover */
+}
+
+.navLink::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Position the underline just below the text */
+    width: 0%;
+    height: 2px;
+    background-color: #0b6623; /* Match the palette green */
+    transition: width 0.3s ease-in-out;
+}
+
+.navLink:hover::after {
+    width: 100%; /* Animate the underline to appear fully */
+}
+
+.navLink.active {
+    @apply text-green-700 font-semibold; /* Highlight active link */
+}
+
+@media (max-width: 768px) {
+    .navLinks {
+        @apply flex-col space-y-4 mt-4; /* Stack links vertically on mobile */
+    }
+
+    .navLink {
+        @apply text-lg; /* Slightly larger text for better visibility */
+    }
+}
+
+.dropdown {
+    @apply relative;
+}
+
+/* Dropdown Menu */
+.dropdownMenu {
+    @apply absolute mt-2 w-48 bg-white shadow-lg rounded-lg z-50;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.dropdownMenu:hover {
+    @apply opacity-100 scale-100; /* Ensure it remains visible */
+}
+
+.dropdownItem {
+    @apply block px-4 py-2 text-gray-700 transition-colors duration-300;
+}
+
+.dropdownItemHover {
+    @apply bg-green-100 text-green-700;
+}
+
+.ctaButton {
+    @apply px-6 py-2 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-full shadow-md hover:from-green-700 hover:to-green-800 hover:shadow-lg transition-transform transform hover:scale-105;
+}
+
