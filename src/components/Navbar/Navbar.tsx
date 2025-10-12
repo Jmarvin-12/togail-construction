@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 /**
@@ -26,17 +27,22 @@ import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import Image from 'next/image';
 import Services from '../ServicesItems/Services';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
 
-    const [isScrolled, setIsScrolled] = useState(false); // Tracks when Navbar should apply transparency
-    const [scrollScale, setScrollScale] = useState(1); // Tracks logo scaling dynamically
-    const [currentPath, setCurrentPath] = useState("");
+    const currentPath = usePathname();
+
+    // const [isScrolled, setIsScrolled] = useState(false); // Tracks when Navbar should apply transparency
+    // const [scrollScale, setScrollScale] = useState(1); // Tracks logo scaling dynamically
+    // const [currentPath, setCurrentPath] = useState("");
+    const [isScrolled, setIsScrolled] = useState(false); // transparencia/blur al hacer scroll
+    const [scrollScale, setScrollScale] = useState(1);   // escala dinámica del logo
 
     useEffect(() => {
         // Ensure this code runs only on the client
         if (typeof window !== "undefined") {
-            setCurrentPath(window.location.pathname);
 
             const handleScroll = () => {
                 const scrollY = window.scrollY;
@@ -50,8 +56,14 @@ export default function Navbar() {
                 setIsScrolled(scrollY > 50); // Apply transparency effects
             };
 
+            handleScroll();
+
             window.addEventListener("scroll", handleScroll);
-            return () => window.removeEventListener("scroll", handleScroll);
+            window.addEventListener("resize", handleScroll);
+            return () => {
+                window.removeEventListener("scroll", handleScroll);
+                window.removeEventListener("resize", handleScroll);
+            };
         }
     }, []);    
 
@@ -84,19 +96,39 @@ export default function Navbar() {
                 </div>
 
                     {/* Navigation Links */}
-                    <ul className={styles.navLinks}>
-                        <li><a href="/"
+                        <li>
+                            <Link
+                                href="/"
                                 className={`${styles.navLink} ${
-                                    window.location.pathname === "/" ? styles.active : ""
-                            }`}>Home</a></li>
-                        <li><a href="/about" className={`${styles.navLink} ${
-                                    window.location.pathname === "/" ? styles.active : ""
-                            }`}>About</a></li>
+                                    currentPath === "/" ? styles.active : ""
+                                }`}
+                            >
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link 
+                                href="/about" 
+                                className={`${styles.navLink} ${
+                                    currentPath === "/about" ? styles.active : ""
+                                }`}
+                            >
+                                About
+                            </Link>
+                        </li>
+
                         <li><Services></Services></li>
-                        <li><a href="/contact" className={`${styles.navLink} ${
-                                    window.location.pathname === "/" ? styles.active : ""
-                            }`}>Contact</a></li>
-                    </ul>
+
+                        <li>
+                            <Link
+                                href="/contact"
+                                className={`${styles.navLink} ${
+                                    currentPath === "/contact" ? styles.active : "" 
+                                }`}
+                            >
+                                Contact
+                            </Link>
+                        </li>
                     <a href="/quote" className={styles.ctaButton}>Get a Quote</a>
                 </div>
             </nav>

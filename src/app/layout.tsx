@@ -19,7 +19,9 @@
  * - Global styles are imported from `globals.css`.
  */
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { Metadata } from "next";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Inter } from "next/font/google";

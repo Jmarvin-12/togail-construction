@@ -17,6 +17,7 @@
  * ```
  */
 
+import Link from 'next/link';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -38,10 +39,10 @@ export default function Footer() {
                 <div className={styles.section}>
                     <h3 className={styles.subtitle}>Quick Links</h3>
                     <ul className={styles.links}>
-                        <li><a href="/" className={styles.link}>Home</a></li>
-                        <li><a href="/about" className={styles.link}>About</a></li>
-                        <li><a href="/services" className={styles.link}>Services</a></li>
-                        <li><a href="/contact" className={styles.link}>Contact</a></li>
+                        <li><Link href="/" className={styles.link}/>Home</li>
+                        <li><Link href="/about" className={styles.link}/>About</li>
+                        <li><Link href="/services" className={styles.link}/>Services</li>
+                        <li><Link href="/contact" className={styles.link}/>Contact</li>
                     </ul>
                 </div>
 
