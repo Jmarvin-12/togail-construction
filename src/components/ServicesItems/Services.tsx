@@ -3,8 +3,11 @@
 import { useState, useRef } from "react";
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react';
 import styles from '@components/Navbar/Navbar.module.css';
+import { usePathname } from 'next/navigation';
 
 export default function Services() {
+
+    const currentPath = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -30,7 +33,7 @@ export default function Services() {
             >
                 {/* Services Menu Button */}
                 <MenuButton className={`${styles.navLink} ${
-                                    window.location.pathname === "/" ? styles.active : ""
+                                    currentPath === "/" ? styles.active : ""
                             }`}>
                     Services
                 </MenuButton>
