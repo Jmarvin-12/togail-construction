@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --container: 1200px;
+  --h: 80px;    
+  --h-sm: 60px;  
+  --h-xs: 56px;  
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

@@ -1,9 +1,3 @@
-:root{
-  --container: 1200px;
-  --h: 80px;    
-  --h-sm: 60px;  
-  --h-xs: 56px;  
-}
 
 .navbar{
     @apply sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur;
