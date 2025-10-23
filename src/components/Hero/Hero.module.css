@@ -6,6 +6,7 @@
     justify-content: flex-start; /* Align content to the left */
     padding: 0 5%; /* Add horizontal padding */
     animation: backgroundEmerge 1.5s ease-out; /* Background animation */
+    font-family: poppins;
 }
 
 @keyframes backgroundEmerge {
@@ -49,7 +50,8 @@
 }
 
 .buttonPrimary {
-    @apply px-6 py-3 bg-green-600 text-white font-semibold rounded-full shadow-md hover:bg-green-800 hover:shadow-lg transition-all duration-300;
+    @apply px-6 py-3 text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 shadow transition hover:bg-green-700;
+    background-color: #749179;
 }
 
 .buttonSecondary {

@@ -24,29 +24,26 @@ import type { Metadata } from "next";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
-import Navbar from '@components/Navbar/Navbar';
-import Footer from '@components/Footer/Footer';
-import Hero from '@components/Hero/Hero';
-import AboutUs from "@/components/AboutUs/AboutUs";
+import Navbar from "@components/Navbar/Navbar";
+import Footer from "@components/Footer/Footer";
 
 export const metadata = {
-    title: 'Togail Construction',
-    description: 'Professional flooring solutions in Boston.',
+  title: "Togail Construction",
+  description: "Professional flooring solutions in Boston.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-    return (
-        <html lang="en">
-            <body className={inter.className}>
-                <Navbar />
-                <Hero />
-                <AboutUs />
-                {children}
-                <Footer />
-            </body>
-        </html>
-    )
-};
-
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className="min-h-screen flex flex-col bg-white text-gray-900">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}

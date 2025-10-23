@@ -1,6 +1,7 @@
 /* About Us Section Styles */
 .aboutSection {
     @apply relative flex items-center justify-between w-full bg-white py-12 px-8; /* Background and spacing */
+    font-family: poppins;
 }
 
 .aboutContent {
@@ -8,15 +9,19 @@
 }
 
 .aboutTitle {
-    @apply text-4xl font-extrabold text-green-600 mb-4; /* Title styling */
+    @apply text-4xl font-extrabold mb-4; /* Title styling */
+    color: #7a808c;
 }
 
 .aboutText {
-    @apply text-gray-700 text-lg mb-6 leading-relaxed; /* Paragraph styling */
+    @apply text-lg mb-12 leading-relaxed; /* Paragraph styling */
+    color: #7a808c;
+
 }
 
 .readMoreButton {
-    @apply inline-block px-6 py-3 bg-green-600 text-white font-semibold rounded-full shadow-md hover:bg-green-700 hover:shadow-lg transition-all duration-300;
+    @apply inline-block px-6 py-3 text-white font-semibold rounded-full shadow-md hover:bg-green-700 hover:shadow-lg transition-all duration-300;
+    background-color: #749179;
 }
 
 .aboutImage {

@@ -1,150 +1,150 @@
-/* Independent Logo */
-/* .logoWrapper {
-    @apply fixed -top-px left-[50%] transform -translate-x-1/2 z-50 shadow-md px-4 py-2  transition-opacity duration-1000 ease-in-out;
-} */
-
-@media (max-width: 768px) {
-    .logoWrapper {
-        width: 150px;
-        height: 75px;
-    }
+:root{
+  --container: 1200px;
+  --h: 80px;    
+  --h-sm: 60px;  
+  --h-xs: 56px;  
 }
 
-/* .logoWrapper {
-    @apply absolute top-3 left-[50%] transform -translate-x-1/2 flex items-center justify-center;
-    background-image: url('/FullLogo.jpg'); 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+.navbar{
+    @apply sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur;
+    height: var(--h);
+    transition: height .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.scrolled{
+    height: var(--h-sm);
+    @apply bg-white/95 shadow-sm;
+}
+
+.inner{
+    @apply mx-auto grid items-center gap-2 px-4 md:px-6;
+    max-width: var(--container);
+    height: 100%;
+    grid-template-columns: 1fr auto 1fr;
+    font-family: poppins;
+    color: #7a808c;
+}
+
+.left{ @apply hidden md:flex items-center gap-6; }
+.right{ @apply hidden md:flex items-center justify-end gap-6; }
+.link{ @apply text-lg font-semibold; }
+
+
+.link:hover {
+    @apply text-green-700 hover:underline;
+}
+
+.cta{
+    @apply rounded-full  px-6 py-2 text-lg font-semibold text-white shadow transition hover:bg-green-700;
+    background-color: #749179;
+}
+
+.logoDock{
+    position: relative;
+    justify-self: center;
+    overflow: visible;
+}
+
+.logoCard{
+    position: relative;
     width: 200px;
-    height: 100px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-} */
-.logoWrapper {
-    @apply absolute top-0 left-[50%] transform -translate-x-1/2 flex items-center justify-center;
-    width: 200px; /* Default size */
-    height: 100px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    background-image: url('/FullLogo.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    height: calc(var(--h) + 30px);
+    margin-top: -10px;
+    @apply bg-white shadow-xl shadow-[0_8px_16px_rgba(0,109,0,0.6)] rounded-lg;
+    overflow: hidden;
+    transition: width .2s ease, height .2s ease, margin .2s ease, box-shadow .2s ease;
 }
 
-.logoSmall {
-    transform: translate(-50%, 0) scale(0.7); /* Shrink smoothly to 70% */
-    transition: transform 0.3s ease-in-out;
+.logoCard:hover {
+        box-shadow: 0 10px 20px rgba(0, 109, 0, 0.8);
 }
 
-.logoWrapper.shrink {
-    transform: translate(-50%, 0) scale(0.7); /* Shrink smoothly */
+.scrolled .logoCard{
+    width: 180px;
+    height: calc(var(--h-sm) + 5px);
+    margin-top: 0;
+    @apply shadow-md;
 }
 
-/* .logoSmall {
-    transform: scale(0.8) translate(-50%, 0); 
-} */
-
-.logoImage {
-    @apply shadow-[0_8px_16px_rgba(0,109,0,0.6)] rounded-lg;
-} 
-
-/* .logoWrapper:hover {
-    @apply shadow-[0_12px_24px_rgba(0,109,0,0.8)] transform scale-110;
-} */
-.logoWrapper:hover {
-    box-shadow: 0 12px 24px rgba(0, 109, 0, 0.8); /* 3D effect */
-    transform: scale(1.05) translate(-50%, 0); /* Ensure centering */
+.logoImg{
+    @apply object-contain;
 }
 
-/* Navbar */
-.navbar {
-    @apply sticky top-0 z-50 bg-white shadow-md flex justify-between items-center px-8 py-3 border-b border-gray-200 transition-all duration-300 ease-in-out;
+.logoCard :global(img){
+    inset: 0;
+    position: absolute !important;
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: contain !important;
 }
 
-/* .navbarScrolled {
-*    @apply bg-opacity-75; 
-*    background-color: rgba(255, 255, 255, 0.85); 
-    @apply shadow-lg; /* Enhance shadow on scroll */
-/* } */
- 
-.navbarScrolled {
-    @apply bg-opacity-95; /* Transparency */
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
-}
+/* ===== Estado base de controles móviles (ocultos por defecto) ===== */
+.mobile{ display: none;}
+.burger{ display: none; }
+.ctaMobile{ display: none; }
 
-.container {
-    @apply flex justify-between items-center w-full max-w-7xl mx-auto;
-}
+@media (max-width: 768px){
 
-.logoWrapper {
-    @apply absolute left-[50%] transform -translate-x-1/2;
-}
+  .open{
+    display: block;                 
+  }
+  /* altura y fondo fijos en móvil (sin shrink) */
+  .navbar{ height: var(--h-xs); }
+  .scrolled{ height: var(--h-xs); }
 
-.navLinks {
-    @apply flex space-x-8 items-center; /* Horizontal alignment and spacing */
-}
+  /* oculta grupos desktop en móvil */
+  .left, .right, .cta{ @apply hidden !important; }
 
-.navLink {
-    @apply text-gray-700 text-base font-medium transition-all duration-300;
-    position: relative; /* Enable underline animation */
-}
+  /* logo SIN overhang en móvil */
+  .logoCard{
+    width: 120px;
+    height: calc(var(--h) - 5px);
+    overflow: hidden;
+  }
 
-.navLink:hover {
-    @apply text-green-700; /* Change text color on hover */
-}
+  .scrolled .logoCard{
+    height: calc(var(--h-sm) - 5px);
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible;
+    }
 
-.navLink::after {
-    content: "";
-    position: absolute;
+  /* Burger izquierda */
+  .burger{
+    @apply inline-flex items-center justify-center h-10 w-10 rounded-md border border-gray-200 bg-white;
+    position: absolute; left: 8px; top: 50%; transform: translateY(-50%);
+    z-index: 110;
+  }
+  .burger > span{ @apply block w-5 h-0.5 bg-gray-800; }
+  .burger > span + span{ @apply my-1; }
+
+  /* CTA móvil derecha, dentro del header, sin corte */
+  .ctaMobile{
+    @apply inline-flex items-center justify-center rounded-full px-3 py-2 text-xs font-semibold text-white shadow hover:bg-green-700;
+    position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+    z-index: 110;
+    max-width: 48vw; /* evita recortes en anchos extremos */
+    white-space: nowrap;
+    background-color: #749179;
+  }
+
+  /* Drawer móvil: anclado bajo el header, scroll interno */
+  .mobile{
+    position: fixed;
     left: 0;
-    bottom: -2px; /* Position the underline just below the text */
-    width: 0%;
-    height: 2px;
-    background-color: #0b6623; /* Match the palette green */
-    transition: width 0.3s ease-in-out;
+    right: 0;
+    top: var(--h-xs);                /* justo debajo del header móvil */
+    max-height: calc(100vh - var(--h-xs));
+    overflow-y: auto;
+    background: #ffffff;
+    border-bottom: 3px solid rgba(0,0,0,.08);
+    box-shadow: 0 12px 24px rgba(0,0,0,.12);
+    z-index: 120;
+    padding: 12px 0;
+  }
+  .open{ @apply translate-y-0; }
+
+  .mobileNav{ @apply mx-auto max-w-7xl px-4 py-3; }
+  .mobileLink{ @apply block py-3 text-base font-semibold text-gray-800 hover:text-green-700; }
+  .mobileCTA{ @apply mt-2 inline-flex w-full justify-center rounded-full bg-green-600 px-4 py-3 text-base font-semibold text-white hover:bg-green-700; }
 }
-
-.navLink:hover::after {
-    width: 100%; /* Animate the underline to appear fully */
-}
-
-.navLink.active {
-    @apply text-green-700 font-semibold; /* Highlight active link */
-}
-
-@media (max-width: 768px) {
-    .navLinks {
-        @apply flex-col space-y-4 mt-4; /* Stack links vertically on mobile */
-    }
-
-    .navLink {
-        @apply text-lg; /* Slightly larger text for better visibility */
-    }
-}
-
-.dropdown {
-    @apply relative;
-}
-
-/* Dropdown Menu */
-.dropdownMenu {
-    @apply absolute mt-2 w-48 bg-white shadow-lg rounded-lg z-50;
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-}
-
-.dropdownMenu:hover {
-    @apply opacity-100 scale-100; /* Ensure it remains visible */
-}
-
-.dropdownItem {
-    @apply block px-4 py-2 text-gray-700 transition-colors duration-300;
-}
-
-.dropdownItemHover {
-    @apply bg-green-100 text-green-700;
-}
-
-.ctaButton {
-    @apply px-6 py-2 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-full shadow-md hover:from-green-700 hover:to-green-800 hover:shadow-lg transition-transform transform hover:scale-105;
-}
-

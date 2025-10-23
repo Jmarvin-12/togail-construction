@@ -11,11 +11,15 @@ export default function AboutUsSection() {
             <div className={styles.aboutContent}>
                 <h2 className={styles.aboutTitle}>ABOUT US</h2>
                 <p className={styles.aboutText}>
-                    At Togail Construction, we transform your vision into reality with premium
-                    flooring solutions. Our team is dedicated to delivering unmatched quality
-                    and expertise tailored to your needs.
+                    Togail Construction is a trusted handyman and construction services company
+                    proudly serving Boston and the surroundings communities. With a name that 
+                    means `to build` in irish, our roots run deep in craftsmanship, integrity,
+                    and attention to detail. Whether it is a small home repair, a custom renovation
+                    or a full-scale remodel, we bring a thoughtful, skilled approach to every project.
+
+                    {/* #7a808c; */}
                 </p>
-                <a href="/about" className={styles.readMoreButton}>READ MORE</a>
+                <a href="/about" className={styles.readMoreButton}>Learn More</a>
             </div>
 
             {/* Right Image */}

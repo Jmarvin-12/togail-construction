@@ -46,7 +46,7 @@ export default function HeroSection() {
                 <div className={`${styles.content} ${playAnimation ? styles.emergeEffect : ""}`}>
                     {/* Title */}
                     <h2 className={styles.headline}>
-                        Transforming Spaces with Premium Flooring Solutions
+                        Transforming Spaces with Premium Flooring Solutions.
                     </h2>
                     <p className={styles.subheadline}>
                         Your vision. Our expertise. Discover unmatched quality today.
