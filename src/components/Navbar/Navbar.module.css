@@ -1,144 +1,243 @@
-
-.navbar{
-    @apply sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur;
-    height: var(--h);
-    transition: height .2s ease, background .2s ease, box-shadow .2s ease;
+.navbar {
+  @apply sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur;
+  height: var(--h);
+  transition: height 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
-.scrolled{
-    height: var(--h-sm);
-    @apply bg-white/95 shadow-sm;
-}
-
-.inner{
-    @apply mx-auto grid items-center gap-2 px-4 md:px-6;
-    max-width: var(--container);
-    height: 100%;
-    grid-template-columns: 1fr auto 1fr;
-    font-family: poppins;
-    color: #7a808c;
+.scrolled {
+  height: var(--h-sm);
+  @apply bg-white/95 shadow-sm;
+  opacity: 0.9;
 }
 
-.left{ @apply hidden md:flex items-center gap-6; }
-.right{ @apply hidden md:flex items-center justify-end gap-6; }
-.link{ @apply text-lg font-semibold; }
+.inner {
+  @apply mx-auto grid items-center gap-2 px-4 md:px-6;
+  max-width: var(--container);
+  height: 100%;
+  grid-template-columns: 1fr auto 1fr;
+  font-family: poppins;
+  color: #7a808c;
+}
 
+.left {
+  @apply hidden md:flex items-center gap-6;
+}
+.right {
+  @apply hidden md:flex items-center justify-end gap-6;
+}
+.link {
+  @apply text-lg font-semibold;
+}
 
 .link:hover {
-    @apply text-green-700 hover:underline;
+  @apply text-green-700 hover:underline;
 }
 
-.cta{
-    @apply rounded-full  px-6 py-2 text-lg font-semibold text-white shadow transition hover:bg-green-700;
-    background-color: #749179;
+.cta {
+  @apply rounded-full  px-6 py-2 text-lg font-semibold text-white shadow transition hover:bg-green-700;
+  background-color: #749179;
 }
 
-.logoDock{
-    position: relative;
-    justify-self: center;
-    overflow: visible;
+.logoDock {
+  position: relative;
+  justify-self: center;
+  overflow: visible;
 }
 
-.logoCard{
-    position: relative;
-    width: 200px;
-    height: calc(var(--h) + 30px);
-    margin-top: -10px;
-    @apply bg-white shadow-xl shadow-[0_8px_16px_rgba(0,109,0,0.6)] rounded-lg;
-    overflow: hidden;
-    transition: width .2s ease, height .2s ease, margin .2s ease, box-shadow .2s ease;
+.logoCard {
+  position: relative;
+  width: 200px;
+  height: calc(var(--h) + 30px);
+  margin-top: -10px;
+  @apply bg-white shadow-xl shadow-[0_8px_16px_rgba(0,109,0,0.6)] rounded-lg;
+  overflow: hidden;
+  transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .logoCard:hover {
-        box-shadow: 0 10px 20px rgba(0, 109, 0, 0.8);
+  box-shadow: 0 10px 20px rgba(0, 109, 0, 0.8);
 }
 
-.scrolled .logoCard{
-    width: 180px;
-    height: calc(var(--h-sm) + 5px);
-    margin-top: 0;
-    @apply shadow-md;
+.scrolled .logoCard {
+  width: 180px;
+  height: calc(var(--h-sm) + 5px);
+  margin-top: 0;
+  @apply shadow-md;
 }
 
-.logoImg{
-    @apply object-contain;
+.logoImg {
+  @apply object-contain;
 }
 
-.logoCard :global(img){
-    inset: 0;
-    position: absolute !important;
-    height: 100% !important;
-    width: 100% !important;
-    object-fit: contain !important;
+.logoCard :global(img) {
+  inset: 0;
+  position: absolute !important;
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: contain !important;
 }
 
-/* ===== Estado base de controles móviles (ocultos por defecto) ===== */
-.mobile{ display: none;}
-.burger{ display: none; }
-.ctaMobile{ display: none; }
+.mobile {
+  display: none;
+}
+.burger {
+  display: none;
+}
+.ctaMobile {
+  display: none;
+}
 
-@media (max-width: 768px){
-
-  .open{
-    display: block;                 
+@media (max-width: 768px) {
+  .open {
+    display: block;
   }
-  /* altura y fondo fijos en móvil (sin shrink) */
-  .navbar{ height: var(--h-xs); }
-  .scrolled{ height: var(--h-xs); }
+  .navbar {
+    height: var(--h-xs);
+  }
+  .scrolled {
+    height: var(--h-xs);
+  }
 
-  /* oculta grupos desktop en móvil */
-  .left, .right, .cta{ @apply hidden !important; }
+  .left,
+  .right,
+  .cta {
+    @apply hidden !important;
+  }
 
-  /* logo SIN overhang en móvil */
-  .logoCard{
+  .logoCard {
     width: 120px;
     height: calc(var(--h) - 5px);
     overflow: hidden;
   }
 
-  .scrolled .logoCard{
+  .scrolled .logoCard {
     height: calc(var(--h-sm) - 5px);
     background: transparent !important;
     box-shadow: none !important;
     border-radius: 0 !important;
     overflow: visible;
-    }
+  }
 
-  /* Burger izquierda */
-  .burger{
+  .burger {
     @apply inline-flex items-center justify-center h-10 w-10 rounded-md border border-gray-200 bg-white;
-    position: absolute; left: 8px; top: 50%; transform: translateY(-50%);
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 110;
   }
-  .burger > span{ @apply block w-5 h-0.5 bg-gray-800; }
-  .burger > span + span{ @apply my-1; }
+  .burger > span {
+    @apply block w-5 h-0.5 bg-gray-800;
+  }
+  .burger > span + span {
+    @apply my-1;
+  }
 
-  /* CTA móvil derecha, dentro del header, sin corte */
-  .ctaMobile{
+  /* Botón base ya lo tienes; añadimos estado y los SVGs */
+  .burgerOpen {
+    /* se añade dinámicamente cuando open === true */
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+    color: #7a808c; /* mismo tono que tus links */
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+
+  .iconMenu {
+    opacity: 1;
+  }
+  .iconClose {
+    position: absolute; /* se superpone dentro del botón */
+    opacity: 0;
+  }
+
+  .burger:hover .icon {
+    color: #2f855a;
+  } /* hover verde */
+  .burgerOpen .iconMenu {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .burgerOpen .iconClose {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .ctaMobile {
     @apply inline-flex items-center justify-center rounded-full px-3 py-2 text-xs font-semibold text-white shadow hover:bg-green-700;
-    position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 110;
-    max-width: 48vw; /* evita recortes en anchos extremos */
+    max-width: 48vw;
     white-space: nowrap;
     background-color: #749179;
   }
 
-  /* Drawer móvil: anclado bajo el header, scroll interno */
-  .mobile{
+  .mobile {
     position: fixed;
     left: 0;
     right: 0;
-    top: var(--h-xs);                /* justo debajo del header móvil */
+    top: var(--h-xs);
     max-height: calc(100vh - var(--h-xs));
     overflow-y: auto;
     background: #ffffff;
-    border-bottom: 3px solid rgba(0,0,0,.08);
-    box-shadow: 0 12px 24px rgba(0,0,0,.12);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
     z-index: 120;
     padding: 12px 0;
   }
-  .open{ @apply translate-y-0; }
+  .open {
+    @apply translate-y-0;
+  }
 
-  .mobileNav{ @apply mx-auto max-w-7xl px-4 py-3; }
-  .mobileLink{ @apply block py-3 text-base font-semibold text-gray-800 hover:text-green-700; }
-  .mobileCTA{ @apply mt-2 inline-flex w-full justify-center rounded-full bg-green-600 px-4 py-3 text-base font-semibold text-white hover:bg-green-700; }
+  .mobileNav {
+    @apply mx-auto max-w-7xl px-4 py-3;
+  }
+  .mobileLink {
+    @apply block py-3 text-base font-semibold text-gray-800 hover:text-green-700;
+  }
+  .mobileCTA {
+    @apply mt-2 inline-flex w-full justify-center rounded-full bg-green-600 px-4 py-3 text-base font-semibold text-white hover:bg-green-700;
+  }
+}
+
+/* ===== Protección en móviles muy estrechos (<400px) ===== */
+@media (max-width: 400px){
+  /* 1) Reserva espacio para el botón hamburguesa y el CTA móvil */
+  .inner{
+    /* ancho del botón = 40px (h-10/w-10) + 8px de margen a cada lado */
+    padding-left: 25px;   /* 8px + 40px + 8px */
+    padding-right: 96px;  /* CTA suele ser más ancho; ajusta si cambias el texto */
+  }
+
+  /* 2) Ajusta el logo para no colisionar */
+  .logoCard{
+    width: 110px;                 /* antes 120–140px */
+    height: calc(var(--h-xs) - 10px);
+    margin-top: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible;
+  }
+
+  .scrolled .logoCard {
+    height: calc(var(--h-xs) - 10px);
+    transition: width 0s ease, height 0s ease, margin 0s ease,
+    box-shadow 0s ease;
+  }
+
+  /* 3) Asegura posiciones y no-corte de controles */
+  .burger{ left: 6px; }           /* ligeramente más al borde */
+  .ctaMobile{
+    right: 6px;
+    padding: 0.45rem 0.5rem;      /* compáctalo para caber sin cortar */
+    font-size: 11px;
+    max-width: 44vw;              /* evita que invada el centro */
+    white-space: nowrap;
+  }
 }

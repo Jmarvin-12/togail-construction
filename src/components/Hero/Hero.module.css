@@ -1,70 +1,101 @@
+/* Se adapta a notch y barras móviles. 100svh evita “salto” por barras del navegador. */
 .hero {
-    @apply relative h-screen w-full bg-cover bg-center;
-    background-image: url('/heroS1.webp'); /* Background image */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Align content to the left */
-    padding: 0 5%; /* Add horizontal padding */
-    animation: backgroundEmerge 1.5s ease-out; /* Background animation */
-    font-family: poppins;
+  @apply relative w-full bg-cover bg-center;
+  min-height: 100svh;
+  background-image: url('/heroS1.jpg');
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-inline: 1rem;           /* base mobile */
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  animation: backgroundEmerge 1.2s ease-out;
+  font-family: poppins;
 }
 
+/* Animación de fondo */
 @keyframes backgroundEmerge {
-    0% {
-        transform: translateY(100px) scale(1.1); /* Start below and zoomed */
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0) scale(1); /* End at normal position */
-        opacity: 1;
-    }
+  0% { transform: translateY(60px) scale(1.06); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
+/* Capa oscura para legibilidad */
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Optional overlay */
-    z-index: 1;
+  position: absolute; inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 1;
 }
 
+/* Contenido: 100% ancho en móvil, 50% en md+ */
 .content {
-    position: relative;
-    z-index: 2;
-    max-width: 50%; /* Restrict content width */
-    animation: emergeFromBottom 1.2s ease-out; /* Add emerge animation */
+  position: relative; z-index: 2;
+  width: 100%;
+  max-width: 48rem;               /* tope útil */
+  animation: emergeFromBottom 0.9s ease-out;
 }
 
+/* Tipografías fluidas. clamp evita desbordes en móvil */
 .headline {
-    @apply text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-white;
+  color: #fff;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  font-size: clamp(28px, 8vw, 56px);
+  text-wrap: balance;
 }
-
 .subheadline {
-    @apply text-lg md:text-xl font-medium mb-6 text-gray-300;
+  color: #d1d5db;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-size: clamp(14px, 3.6vw, 20px);
 }
 
+/* Botones: en móvil columna y 100% ancho; en md fila con gap */
 .buttons {
-    @apply flex space-x-4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: min(100%, 28rem);
 }
 
+/* Botón primario */
 .buttonPrimary {
-    @apply px-6 py-3 text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 shadow transition hover:bg-green-700;
-    background-color: #749179;
+  @apply text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300;
+  background-color: #749179;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  min-height: 44px;               /* objetivo táctil */
 }
 
+/* Botón secundario */
 .buttonSecondary {
-    @apply px-6 py-3 bg-white text-green-600 font-semibold rounded-full shadow-md hover:bg-gray-300 hover:shadow-lg transition-all duration-300;
+  @apply bg-white text-green-600 font-semibold rounded-full shadow-md hover:bg-gray-200 hover:shadow-lg transition-all duration-300;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  min-height: 44px;
 }
 
+/* Animación de contenido */
 @keyframes emergeFromBottom {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Botón “volver arriba” accesible y no invasivo */
+.toTop {
+  position: fixed;
+  right: 14px;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  width: 44px; height: 44px;
+  border-radius: 9999px; border: 0;
+  background: #38a169; color: #fff;
+  cursor: pointer;
+  z-index: 20;
+}
+
+/* ====== Mejoras para pantallas medianas y grandes ====== */
+@media (min-width: 768px) {
+  .hero { padding-inline: 5%; background-image: url('/heroS1.webp'); }
+  .content { max-width: 50%; }        /* como tu versión desktop */
+  .buttons { flex-direction: row; gap: 1rem; width: auto; }
 }

@@ -1,33 +1,66 @@
-/* About Us Section Styles */
-.aboutSection {
-    @apply relative flex items-center justify-between w-full bg-white py-12 px-8; /* Background and spacing */
-    font-family: poppins;
+/* Contenedor: móvil apilado, md+ dos columnas */
+.aboutSection{
+  @apply w-full bg-white;
+  font-family: poppins;
+  padding-inline: 1rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;       /* móvil */
+  gap: 1.25rem;
+}
+@media (min-width: 768px){
+  .aboutSection{
+    padding-inline: 2rem;
+    grid-template-columns: 1fr 1fr; /* desktop */
+    gap: 2rem;
+    max-width: 72rem;               /* ~1152px */
+    margin-inline: auto;
+  }
 }
 
-.aboutContent {
-    @apply w-1/2 pr-8; /* Takes 50% of the width with padding-right */
+/* Columna de texto */
+.aboutContent{
+  @apply w-full;
+}
+.aboutTitle{
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.75rem;
+  color: #7a808c;
+  font-size: clamp(22px, 6vw, 36px);
+  line-height: 1.15;
+}
+.aboutText{
+  color: #7a808c;
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+  font-size: clamp(14px, 3.6vw, 18px);
 }
 
-.aboutTitle {
-    @apply text-4xl font-extrabold mb-4; /* Title styling */
-    color: #7a808c;
+/* Botón */
+.readMoreButton{
+  @apply inline-block font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300;
+  background-color: #749179;
+  color: #fff;
+  padding: 0.75rem 1.25rem;     /* 44px mínimo táctil */
+  min-height: 44px;
 }
 
-.aboutText {
-    @apply text-lg mb-12 leading-relaxed; /* Paragraph styling */
-    color: #7a808c;
-
+/* Columna de imagen */
+.aboutImage{
+  @apply w-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aboutImgEl{
+  @apply rounded-lg shadow-md;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-width: 640px;             /* evita estirarse demasiado en md */
 }
 
-.readMoreButton {
-    @apply inline-block px-6 py-3 text-white font-semibold rounded-full shadow-md hover:bg-green-700 hover:shadow-lg transition-all duration-300;
-    background-color: #749179;
-}
-
-.aboutImage {
-    @apply w-1/2; /* Takes 50% of the width */
-}
-
-.aboutImage img {
-    @apply rounded-lg shadow-md; /* Image styling */
-}
+/* Separadores verticales extra en móvil grande si lo necesitas */
+/* .aboutSection + section { margin-top: 2rem; } */
