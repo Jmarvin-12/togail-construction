@@ -24,6 +24,11 @@
   font-size: clamp(14px, 3.6vw, 18px);
 }
 
+@keyframes backgroundEmerge {
+  0% { transform: translateY(60px) scale(1.06); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
 /* Grid responsivo */
 .grid {
   display: grid;
