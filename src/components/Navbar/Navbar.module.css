@@ -210,25 +210,22 @@
   /* 1) Reserva espacio para el botón hamburguesa y el CTA móvil */
   .inner{
     /* ancho del botón = 40px (h-10/w-10) + 8px de margen a cada lado */
-    padding-left: 25px;   /* 8px + 40px + 8px */
+    padding-left: 35px;   /* 8px + 40px + 8px */
     padding-right: 96px;  /* CTA suele ser más ancho; ajusta si cambias el texto */
   }
 
   /* 2) Ajusta el logo para no colisionar */
   .logoCard{
     width: 110px;                 /* antes 120–140px */
-    height: calc(var(--h-xs) - 10px);
+    height: calc(var(--h-xs) + 10px);
     margin-top: 0;
     background: transparent !important;
     box-shadow: none !important;
-    border-radius: 0 !important;
     overflow: visible;
   }
 
   .scrolled .logoCard {
-    height: calc(var(--h-xs) - 10px);
-    transition: width 0s ease, height 0s ease, margin 0s ease,
-    box-shadow 0s ease;
+    height: calc(var(--h-xs));
   }
 
   /* 3) Asegura posiciones y no-corte de controles */
