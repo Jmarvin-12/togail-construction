@@ -1,0 +1,84 @@
+/* .section{ @apply w-full;   background: linear-gradient(255.31deg, #e7f1f4 6.82%, #f4f8f9 94.41%); padding:2.5rem 1rem; font-family:poppins; } */
+
+.section{ @apply w-full bg-white; padding:2.5rem 1rem; font-family:poppins; }
+.container{ @apply mx-auto; max-width:72rem; }
+.header{ @apply text-center mb-4; }
+.title{ font-weight:800; font-size:clamp(24px,6vw,36px); color:#7a808c; letter-spacing:.02em; }
+.subtitle{ @apply text-gray-600; font-size:clamp(14px,3.6vw,18px); }
+
+/* lista vertical en mobile; grid compacto en desktop */
+.list{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 1024px){
+  .list{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+.item{ list-style: none; }
+.card{
+  @apply bg-white;
+  display: grid;
+  grid-template-columns: 128px 1fr;    /* mobile */
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.04);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.card:hover{ transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,.08); }
+
+@media (min-width: 1024px){
+  .card{
+    grid-template-columns: 1fr;        /* thumb arriba, texto abajo */
+    padding: 12px;
+  }
+}
+
+.thumb{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;                 /* mini-thumbnail */
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+.img{
+  @apply object-cover;
+  position: absolute !important; inset: 0;
+  width: 100% !important; height: 100% !important;
+}
+
+.body{ display: flex; flex-direction: column; justify-content: center; }
+@media (min-width: 1024px){
+  .body{ padding: 6px 4px 4px; }
+}
+
+.h3{ color:#394150; font-weight:800; font-size: 16px; line-height: 1.3; }
+.meta{ @apply text-gray-600; display:flex; align-items:center; gap:8px; margin:.25rem 0 .4rem; font-size: 13px; }
+.loc{ white-space: nowrap; }
+.dot{ opacity:.5; }
+.tag{ white-space: nowrap; }
+
+.link{
+  @apply inline-flex items-center font-semibold;
+  color: #749179;
+}
+
+.ctaRow{ @apply flex justify-center mt-3; }
+.cta{
+  @apply inline-flex justify-center items-center rounded-full font-semibold px-5 py-2 text-white;
+  background:#749179;
+}
+
+/* motion sutil, accesible */
+@keyframes fadeUp{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;} }
+.item{ animation: fadeUp .3s ease both; }
+.item:nth-child(2){ animation-delay:.05s; }
+.item:nth-child(3){ animation-delay:.1s; }
+@media (prefers-reduced-motion: reduce){ .item{ animation:none; } }
