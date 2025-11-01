@@ -67,45 +67,45 @@ export default function Navbar() {
         </div>
 
         <button
-          type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          className={`${styles.burger} ${open ? styles.burgerOpen : ""}`}
-          onClick={() => setOpen((v) => !v)}
+        type="button"
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
+        aria-controls="mobile-menu"
+        className={`${styles.burger} ${open ? styles.burgerOpen : ""}`}
+        onClick={() => setOpen((v) => !v)}
+      >
+        {/* Icono “menu” (3 líneas) */}
+        <svg
+          className={`${styles.icon} ${styles.iconMenu}`}
+          viewBox="0 0 24 24"
+          role="img"
+          aria-hidden="true"
         >
-          {/* Icono “menu” (3 líneas) */}
-          <svg
-            className={`${styles.icon} ${styles.iconMenu}`}
-            viewBox="0 0 24 24"
-            role="img"
-            aria-hidden="true"
-          >
-            <path
-              d="M4 7h16M4 12h16M4 17h16"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
+          <path
+            d="M4 7h16M4 12h16M4 17h16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
 
-          {/* Icono “close” (X) */}
-          <svg
-            className={`${styles.icon} ${styles.iconClose}`}
-            viewBox="0 0 24 24"
-            role="img"
-            aria-hidden="true"
-          >
-            <path
-              d="M6 6l12 12M18 6l-12 12"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button>
+        {/* Icono “close” (X) */}
+        <svg
+          className={`${styles.icon} ${styles.iconClose}`}
+          viewBox="0 0 24 24"
+          role="img"
+          aria-hidden="true"
+        >
+          <path
+            d="M6 6l12 12M18 6l-12 12"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      </button>
 
         <Link
           href="/quote"
@@ -167,6 +167,7 @@ export default function Navbar() {
           </Link>
         </nav>
       </div>
+
     </header>
   );
 }
